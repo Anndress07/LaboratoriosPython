@@ -1,28 +1,30 @@
 #! /usr/bin/python3
-#Marvin Andres Castro
+# Marvin Andres Castro
 
 import time
+
+
 class Test4:
 
-# aqui declaro los argumentos/variables de -c y -t. Los puse en el
-# constructor para que toda la clase tenga acceso a ellos
+    # aqui declaro los argumentos/variables de -c y -t. Los puse en el
+    # constructor para que toda la clase tenga acceso a ellos
     def __init__(self):
         self.inicio = time.time()
         from argparse import ArgumentParser
         parser = ArgumentParser()
-        parser.add_argument("numero", type=int, help="numero a calcular" )
+        parser.add_argument("numero", type=int, help="numero a calcular")
         parser.add_argument(
             "-t", "--tiempo",
             action="store_true",
             help="medir tiempo"
-        )
+                            )
 
         parser.add_argument(
             "-c", "--completa",
             action="store_true",
-        help="imprimir todos     los"
+        help="imprimir todos los"
             " fibonacci"
-    )
+                            )
 
         self.args = parser.parse_args()
 
@@ -32,11 +34,10 @@ class Test4:
 
         if numero == 0:
             return 1
-        if numero ==1:
+        if numero == 1:
             return 1
         else:
             return self.fibonacci(numero-1) + self.fibonacci(numero-2)
-
 
     def controlador(self):
         numero = self.args.numero
@@ -50,27 +51,28 @@ class Test4:
             tiempo = parar - self.inicio
 
             # aqui no me salio como yo queria, tuve que hacer unas maniobras
-            #con el if
+            # con el if
             print("El Fibonacci del indice " + str(numero) + " es " + str(res))
-            if self.args.tiempo == True and self.args.completa == False:
+            if self.args.tiempo is True and self.args.completa is False:
                 print("Tiempo total de ejecucion: ")
                 print(str(tiempo) + " segundos.")
 
-            elif self.args.completa == True and self.args.tiempo == False:
+            elif self.args.completa is True and self.args.tiempo is False:
                 print("Serie de Fibonacci hasta el indice " + str(numero))
                 for n in range(0, numero+1):
                     print(self.fibonacci(n))
 
-            #por algun motivo el codigo anterior no puede imprimir el tiempo
-            #y fibonacci completo, entonces tengo que hacer esto,
-            #nada eficiente
-            if self.args.tiempo == True and self.args.completa == True:
+            # por algun motivo el codigo anterior no puede imprimir el tiempo
+            # y fibonacci completo, entonces tengo que hacer esto,
+            # nada eficiente
+            if self.args.tiempo is True and self.args.completa is True:
                 print("Tiempo total de ejecucion: ")
                 print(str(tiempo) + " segundos.")
 
                 print("Serie de Fibonacci hasta el indice " + str(numero))
                 for n in range(0, numero+1):
                     print(self.fibonacci(n))
+
 
 a = Test4()
 a.controlador()
