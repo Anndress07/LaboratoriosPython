@@ -1,6 +1,8 @@
 #! /usr/bin/python3
 # Marvin Andres Castro
-
+# Este programa se encarga de calcular el FIbonacci de un numero N.
+# el programa igualmente da la opcion de imprimir el tiempo que tomo en
+# ejecutarse, y tambien los fibonacci de los numeros anteriores a N.
 import time
 
 
