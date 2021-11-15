@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 # Marvin Andres Castro Castro
-
+# Este programa se encargará de imprimir matrices, modificar el contenido de
+# matrices y realizará sumas y restas entre matrices.
 import numpy as np
 
 
